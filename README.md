@@ -15,12 +15,12 @@ Usage
 require_once "./GtinValidator.php";
 $gValidator = new GtinValidator();
 
-$gitin = '9780552133265';
-var_dump($gValidator->isValidGtin($gitin));
+$gtin = '9780552133265';
+var_dump($gValidator->isValidGtin($gtin));
 
-$gitin = '978-0-552-13326-5';
-var_dump($gValidator->isValidGtin($gitin));
+$gtin = '978-0-552-13326-5';
+var_dump($gValidator->isValidGtin($gtin));
 
-$gitin = 9780552133265;
-var_dump($gValidator->isValidGtin($gitin));
+$gtin = 9780552133265;
+var_dump($gValidator->isValidGtin($gtin));
 ```
