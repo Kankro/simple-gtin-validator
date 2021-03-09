@@ -8,3 +8,18 @@ GTIN comprises of GTIN-8, GTIN-12, GTIN-13 and GTIN-14 codes. EAN, UPC and ISBN 
 Copied from python version of charithe
 -----
 https://github.com/charithe/gtin-validator
+
+Usage
+-----
+```require_once "./GtinValidator.php";
+$gValidator = new GtinValidator();
+
+$gitin = '9780552133265';
+var_dump($gValidator->isValidGtin($gitin));
+
+$gitin = '978-0-552-13326-5';
+var_dump($gValidator->isValidGtin($gitin));
+
+$gitin = 9780552133265;
+var_dump($gValidator->isValidGtin($gitin));
+```
