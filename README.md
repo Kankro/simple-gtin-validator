@@ -11,7 +11,8 @@ https://github.com/charithe/gtin-validator
 
 Usage
 -----
-```require_once "./GtinValidator.php";
+```
+require_once "./GtinValidator.php";
 $gValidator = new GtinValidator();
 
 $gitin = '9780552133265';
