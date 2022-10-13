@@ -13,8 +13,10 @@ https://github.com/charithe/gtin-validator
 
 Usage
 -----
+`composer require kankro/simple-gtin-validator`
 ```
-require_once "./GtinValidator.php";
+use Kankro\SimpleGtinValidator\GtinValidator;
+
 $gValidator = new GtinValidator();
 
 $gtin = '9780552133265';
