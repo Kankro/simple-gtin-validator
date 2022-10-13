@@ -1,4 +1,5 @@
 <?php
+namespace Kankro\SimpleGtinValidator;
 
 class GtinValidator
 {

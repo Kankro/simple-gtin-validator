@@ -1,0 +1,18 @@
+{
+    "name": "kankro/simple-gtin-validator",
+    "description": "Validates GTIN (Global Trade Item Number) codes by calculating checksums.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Kankro\\SimpleGtinValidator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eric Affinito",
+            "email": "erkzer0@hotmail.it"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
