@@ -101,7 +101,7 @@ When you call `addCheckDigit($code)`, the validator:
 1. Normalizes the input
 2. Left-pads the value to 13 digits
 3. Calculates the GTIN checksum
-4. Returns the normalized value with the new check digit appended (shorter values are left-padded to 13 digits before the check digit is computed)
+4. Returns the normalized value with the new check digit appended
 
 This means short inputs are padded with leading zeroes before the check digit is generated.
 
