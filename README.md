@@ -99,7 +99,7 @@ When you call `addCheckDigit($code)`, the validator:
 1. Normalizes the input
 2. Left-pads the value to 13 digits
 3. Calculates the GTIN checksum
-4. Returns the 14-digit result with the new check digit appended
+4. Returns the normalized value with the new check digit appended (shorter values are left-padded to 13 digits before the check digit is computed)
 
 This means short inputs are padded with leading zeroes before the check digit is generated.
 
@@ -111,13 +111,16 @@ Validates a GTIN code after normalization, prefix checks, and checksum verificat
 
 **Parameters**
 
-- `$code`: string or numeric input
+- `$code`: string or numeric scalar input (other types are not supported)
 
 **Returns**
 
 - `true` when the code passes prefix, length, numeric, and checksum validation
-- `false` when the code is not acceptable
+- `false` when the code is not acceptable after normalization, prefix filtering, and checksum verification
 
+**Throws**
+
+- An exception or fatal error if `$code` is neither a string nor a numeric value (this occurs during input normalization)
 ### `addCheckDigit($code): string`
 
 Generates and appends a GTIN check digit.
