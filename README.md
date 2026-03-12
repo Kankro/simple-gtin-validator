@@ -21,7 +21,7 @@ GTIN is the umbrella format behind common barcode identifiers such as GTIN-8, UP
 
 ## Requirements
 
-- PHP 7.4 or later
+- PHP 7.4 (PHP 8+ not yet supported)
 - Composer for installation and autoloading
 
 ## Installation
@@ -54,9 +54,11 @@ Supported GTIN lengths for validation:
 
 Accepted input styles:
 
-- Numeric strings such as `'036000291452'`
+- Numeric strings such as `'036000291452'` (recommended)
 - Strings containing hyphens such as `'978-0-552-13326-5'`
-- Numeric values such as `884571375091`
+- Numeric values such as `884571375091` (convenience only; use them only when you are sure there are no leading zeroes and the value stays within a safe integer range)
+
+> For best results, always pass GTINs as strings. Numeric types can drop leading zeroes or be reformatted in ways that change the value being validated.
 
 ## Quick start
 
@@ -121,6 +123,7 @@ Validates a GTIN code after normalization, prefix checks, and checksum verificat
 **Throws**
 
 - An exception or fatal error if `$code` is neither a string nor a numeric value (this occurs during input normalization)
+
 ### `addCheckDigit($code): string`
 
 Generates and appends a GTIN check digit.
@@ -175,7 +178,7 @@ var_dump($validator->addCheckDigit('1234567'));       // "00000012345670"
 The validator includes a public static prefix list that is checked before checksum validation:
 
 ```php
-GtinValidator::$gtinPrefixList
+\Kankro\SimpleGtinValidator\GtinValidator::$gtinPrefixList;
 ```
 
 By default, the list excludes these prefixes:
@@ -227,7 +230,7 @@ Typical workflow for local changes:
 
 - Input should be a string or numeric value
 - Validation behavior depends on the configured prefix list, not only on checksum correctness
-- `addCheckDigit()` always pads to 13 digits before appending the final digit, so the returned value is 14 digits long
+- `addCheckDigit()` left-pads inputs shorter than 13 digits before appending the final digit; inputs longer than 13 digits are not truncated, so the returned value can exceed 14 digits
 - The package is focused on simple validation logic and does not provide barcode parsing or formatting helpers
 
 ## License
