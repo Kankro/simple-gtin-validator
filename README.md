@@ -21,7 +21,7 @@ GTIN is the umbrella format behind common barcode identifiers such as GTIN-8, UP
 
 ## Requirements
 
-- PHP 7.4 (PHP 8+ not yet supported)
+- PHP 7.4 or later
 - Composer for installation and autoloading
 
 ## Installation
@@ -54,11 +54,11 @@ Supported GTIN lengths for validation:
 
 Accepted input styles:
 
-- Numeric strings such as `'036000291452'` (recommended)
+- Numeric strings such as `'036000291452'`
 - Strings containing hyphens such as `'978-0-552-13326-5'`
-- Numeric values such as `884571375091` (convenience only; use them only when you are sure there are no leading zeroes and the value stays within `PHP_INT_MAX` on your platform)
+- Numeric values such as `884571375091`
 
-> For best results, always pass GTINs as strings. Numeric types can drop leading zeroes or be reformatted in ways that change the value being validated.
+Inputs are normalized before validation: numeric values are cast to strings, and hyphens are removed from string inputs.
 
 ## Quick start
 
