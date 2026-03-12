@@ -56,7 +56,7 @@ Accepted input styles:
 
 - Numeric strings such as `'036000291452'` (recommended)
 - Strings containing hyphens such as `'978-0-552-13326-5'`
-- Numeric values such as `884571375091` (convenience only; use them only when you are sure there are no leading zeroes and the value stays within a safe integer range)
+- Numeric values such as `884571375091` (convenience only; use them only when you are sure there are no leading zeroes and the value stays within `PHP_INT_MAX` on your platform)
 
 > For best results, always pass GTINs as strings. Numeric types can drop leading zeroes or be reformatted in ways that change the value being validated.
 
